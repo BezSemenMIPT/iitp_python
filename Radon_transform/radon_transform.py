@@ -3,18 +3,8 @@ from matplotlib import pyplot as plt
 import math
 from PIL import Image
 
-# x_m=x_min+m*d_x, 0<= m <=M-1
-# y <- N-1
-# p <- K-1
-# t<-T-1
 
-
-# p - slope p=-x
-# t - line offset t=y
-# g[][] - image
-
-
-# Define number of angles and projections
+# Using linear interpolation method
 
 
 def discrete_radon(path):
