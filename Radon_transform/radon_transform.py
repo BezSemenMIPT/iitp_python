@@ -51,7 +51,7 @@ sinogram = discrete_radon(name)
 fig = plt.figure()
 plt.title("Radon transform\n(Sinogram)")
 plt.imshow(sinogram)
-plt.savefig("transformed picture " + name)
+plt.savefig("transformed_picture_" + name)
 plt.show()
 
 # Detecting lines -> in progress
