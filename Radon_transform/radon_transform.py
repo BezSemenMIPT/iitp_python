@@ -7,15 +7,14 @@ from PIL import Image
 # Using linear interpolation method
 
 
-def discrete_radon(path):
+def discrete_radon(input_img):
     # Relative Path
-    input_img = Image.open(path)
-    img = input_img.convert("L")
-    # img = img.reduce(4)
-    img = img.resize((100, 100))
-    image_matrix = np.matrix(img)
-    img_upd = np.ones(image_matrix.shape) * 255 - image_matrix
-    (M, N) = img_upd.shape
+    # img = input_img.convert("L")
+    # # img = img.reduce(4)
+    # img = img.resize((100, 100))
+    # image_matrix = np.matrix(img)
+    # img_upd = np.ones(image_matrix.shape) * 255 - image_matrix
+    (M, N) = input_img.shape
     H, K = 500, 500
     d_x, d_y = 2 / (M - 1), 2 / (N - 1)
     x_min, y_min = -1, -1
@@ -39,20 +38,20 @@ def discrete_radon(path):
                 nfloat = alpha * i + beta
                 j = math.floor(nfloat)
                 w = nfloat - j
-                sum += img_upd[i, j] * (1 - w) + img_upd[i, j + 1] * w
+                sum += input_img[i, j] * (1 - w) + input_img[i, j + 1] * w
             g_radon[k, h] = sum * d_x
     return g_radon
 
 
-name = "img.png"
-sinogram = discrete_radon(name)
+# name = "img_line.png"
+# sinogram = discrete_radon(name)
 
 
-fig = plt.figure()
-plt.title("Radon transform\n(Sinogram)")
-plt.imshow(sinogram)
-plt.savefig("transformed_picture_" + name)
-plt.show()
+# fig = plt.figure()
+# plt.title("Radon transform\n(Sinogram)")
+# plt.imshow(sinogram)
+# plt.savefig("transformed_picture_" + name)
+# plt.show()
 
 # Detecting lines -> in progress
 """
