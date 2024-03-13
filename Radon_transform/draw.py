@@ -43,7 +43,7 @@ def detecting_lines(img, threshold_ratio=0.9, draw=0):
         image_with_lines = img.copy()
         for s, t in lines:
             image_with_lines = draw_line(image_with_lines, s, t)
-        plt.imshow(image_with_lines)
-        return max_intensity, obraz
+        # plt.imshow(image_with_lines)
+        return max_intensity, obraz, image_with_lines
     else:
         return max_intensity, obraz
